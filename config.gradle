@@ -7,7 +7,7 @@ project.ext {
     android = [
             compileSdkVersion: 26,
             buildToolsVersion: "26.0.2",
-            applicationId    : "com.sinotech.oms.main.hnasd",
+            applicationId    : "com.jason_sunyf.androidcomponent",
             minSdkVersion    : 19,
             targetSdkVersion : 22,
             versionCode      : 1,

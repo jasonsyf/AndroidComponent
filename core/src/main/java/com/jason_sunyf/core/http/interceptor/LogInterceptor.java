@@ -73,7 +73,7 @@ public class LogInterceptor implements Interceptor {
             requestStr.append("\n").append("responseBody:").append(bufferResponse.readString(charset)).append("\n");
         }
         //这里不能直接使用response.body().string()的方式输出日志
-        Log.d(Config.NetWork, requestStr.toString());
+        Log.d("HTTP_NetWork", requestStr.toString());
         return response;
     }
 }

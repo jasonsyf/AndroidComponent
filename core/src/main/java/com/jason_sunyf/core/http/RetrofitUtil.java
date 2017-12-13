@@ -26,7 +26,7 @@ public class RetrofitUtil {
                 if (retrofit == null) {
                     retrofit = new Retrofit
                             .Builder()
-                            .baseUrl(getBaseUrl())
+                            .baseUrl("http://v.juhe.cn/")
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(getClient())

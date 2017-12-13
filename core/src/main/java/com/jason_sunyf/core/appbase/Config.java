@@ -13,9 +13,7 @@ import java.io.File;
  */
 
 public class Config {
-    public static String BaseIP = "http://192.168.1.46:2071/api/";
-//    public static String BaseIP = "http://61.175.198.101:29990/";
-//    public static String BaseUrl = BaseIP + "HNASD/Mobile_OMS/Implement/";
+    public static String BaseIP = "http://v.juhe.cn/";
     //app 名称
     public static String AppName = "SinoTech_Truck_ZZGLG_DRIVER";
     //app 版本信息 根据这个来判断是否更新
@@ -44,7 +42,7 @@ public class Config {
 
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
-    public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "SinoTech" + File.separator + "HSH_oms";
+    public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "test" + File.separator + "testcomponent";
 
 
 

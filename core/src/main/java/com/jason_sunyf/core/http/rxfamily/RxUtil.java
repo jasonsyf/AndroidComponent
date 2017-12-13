@@ -5,7 +5,9 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.jason_sunyf.core.http.exception.ApiException;
-import com.jason_sunyf.core.http.response.BaseResponse;
+import com.jason_sunyf.core.http.response.JhResponse;
+
+import org.reactivestreams.Publisher;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -17,6 +19,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -48,14 +51,14 @@ public class RxUtil {
      * @return
      */
 
-    public static <T> ObservableTransformer<BaseResponse<T>,T > handleObserverResult() {   //compose判断结果
-        return httpResponseFlowable -> httpResponseFlowable.flatMap(tBaseResponse -> {
-            if (tBaseResponse.isOk()) {
-
-                Log.i("onNext", "onNext: "+new Gson().toJson(tBaseResponse));
-                return createObserverData(tBaseResponse.getValue());
+    public static <T> ObservableTransformer<JhResponse<T>,T > handleObserverResult() {   //compose判断结果
+        return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
+            if (tJhResponse.getResultcode().equals("200")) {
+                Log.i("onNext", "onNext: "+new Gson().toJson(tJhResponse));
+                return createObserverData(tJhResponse.getResult());
             } else {
-                return Observable.error(new ApiException(tBaseResponse.getMessage(), tBaseResponse.getCode()));
+                return Observable.error(new ApiException(tJhResponse.getReason(),
+                       tJhResponse.getError_code()));
             }
         });
     }
@@ -66,12 +69,13 @@ public class RxUtil {
      * @param <T>
      * @return
      */
-    public static <T> ObservableTransformer<BaseResponse<T>,T > handleObserverObjectResult() {   //compose判断结果
-        return httpResponseFlowable -> httpResponseFlowable.flatMap(tBaseResponse -> {
-            if (tBaseResponse.isOk()) {
-                return createObserverData((T) tBaseResponse);
+    public static <T> ObservableTransformer<JhResponse<T>,T > handleObserverObjectResult() {   //compose判断结果
+        return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
+            if (tJhResponse.getResultcode().equals("200")) {
+                return createObserverData((T) tJhResponse);
             } else {
-                return Observable.error(new ApiException(tBaseResponse.getMessage(), tBaseResponse.getCode()));
+                return Observable.error(new ApiException(tJhResponse.getReason(),
+                        tJhResponse.getError_code()));
             }
         });
     }
@@ -119,13 +123,17 @@ public class RxUtil {
      * @param <T>
      * @return
      */
-    public static <T> FlowableTransformer<BaseResponse<T>,T > handleResult() {   //compose判断结果
-        return httpResponseFlowable -> httpResponseFlowable.flatMap(tBaseResponse -> {
-            if (tBaseResponse.isOk()) {
-                Log.i("onNext", "onNext: "+new Gson().toJson(tBaseResponse));
-                return createData(tBaseResponse.getValue());
-            } else {
-                return Flowable.error(new ApiException(tBaseResponse.getMessage(), tBaseResponse.getCode()));
+    public static <T> FlowableTransformer<JhResponse<T>,T > handleResult() {   //compose判断结果
+        return (Flowable<JhResponse<T>> httpResponseFlowable) -> httpResponseFlowable.flatMap(new Function<JhResponse<T>, Publisher<? extends T>>() {
+            @Override
+            public Publisher<? extends T> apply(JhResponse<T> tJhResponse) throws Exception {
+                if (tJhResponse.getResultcode().equals("200")) {
+                    Log.i("onNext", "onNext: " + new Gson().toJson(tJhResponse));
+                    return createData(tJhResponse.getResult());
+                } else {
+                    return Flowable.error(new ApiException(tJhResponse.getReason(),
+                            tJhResponse.getError_code()));
+                }
             }
         });
     }
@@ -136,12 +144,12 @@ public class RxUtil {
      * @param <T>
      * @return
      */
-    public static <T> FlowableTransformer<BaseResponse<T>,T > handleObjectResult() {   //compose判断结果
-        return httpResponseFlowable -> httpResponseFlowable.flatMap(tBaseResponse -> {
-            if (tBaseResponse.isOk()) {
-                return createData((T) tBaseResponse);
+    public static <T> FlowableTransformer<JhResponse<T>,T > handleObjectResult() {   //compose判断结果
+        return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
+            if (tJhResponse.getResultcode().equals("200")) {
+                return createData((T) tJhResponse);
             } else {
-                return Flowable.error(new ApiException(tBaseResponse.getMessage(), tBaseResponse.getCode()));
+                return Flowable.error(new ApiException(tJhResponse.getReason(), tJhResponse.getError_code()));
             }
         });
     }
