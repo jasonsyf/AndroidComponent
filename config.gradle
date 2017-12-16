@@ -1,4 +1,4 @@
-def supportVersion = "25.3.1"
+def supportVersion = "26.0.2"
 def retrofitVersion = "2.3.0"
 def okHttpVersion = "3.7.0"
 def daggerVersion = "2.8"
@@ -9,7 +9,7 @@ project.ext {
             buildToolsVersion: "26.0.2",
             applicationId    : "com.jason_sunyf.androidcomponent",
             minSdkVersion    : 19,
-            targetSdkVersion : 22,
+            targetSdkVersion : 23,
             versionCode      : 1,
             versionName      : "1001"
 
