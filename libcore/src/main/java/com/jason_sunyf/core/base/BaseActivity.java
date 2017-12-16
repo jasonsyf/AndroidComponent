@@ -19,7 +19,8 @@ import com.jason_sunyf.core.view.LoadingProgressDialog;
 
 /**
  * activity基类
- * Created by jerry on 2017/11/2.
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 
 public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity implements BaseView {

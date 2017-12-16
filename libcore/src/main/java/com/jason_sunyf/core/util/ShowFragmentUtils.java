@@ -15,8 +15,8 @@ import com.jason_sunyf.core.base.BaseFragment;
 import java.util.List;
 
 /**
- * Created by jason_sunyf on 2017/8/19.
- * Email:yufeng.sun@21wendao.cn
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 public class ShowFragmentUtils {
 

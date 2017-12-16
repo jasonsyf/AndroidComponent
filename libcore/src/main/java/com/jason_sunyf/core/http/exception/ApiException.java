@@ -1,8 +1,8 @@
 package com.jason_sunyf.core.http.exception;
 
 /**
- * Created by jason_sunyf on 2017/7/11.
- * Email:yufeng.sun@21wendao.cn
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 public class ApiException extends Exception {
 

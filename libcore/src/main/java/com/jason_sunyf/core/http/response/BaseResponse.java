@@ -1,9 +1,9 @@
 package com.jason_sunyf.core.http.response;
 
 /**
+ * 返回结果实体
  * Created by Jason_Sunyf on 2017/11/30 0030.
  * Email： jason_sunyf@163.com
- *  返回结果实体
  */
 
 public class BaseResponse<T> {

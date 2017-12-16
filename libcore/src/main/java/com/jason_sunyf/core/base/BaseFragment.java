@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import com.jason_sunyf.core.http.rxfamily.RxPresenter;
 
 /**
- * Created by jerry on 2017/11/3.
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView {

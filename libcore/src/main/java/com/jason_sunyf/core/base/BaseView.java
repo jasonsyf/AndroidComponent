@@ -6,7 +6,8 @@ import android.os.Bundle;
 
 /**
  * view接口基类
- * Created by LWH on 2017/4/7 0007.
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 
 public  interface BaseView {

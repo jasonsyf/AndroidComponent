@@ -10,8 +10,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 /**
- * Created by jason_sunyf on 2017/11/1.
  * 基于Rx的Presenter封装,控制订阅的生命周期
+ * Created by Jason_Sunyf on 2017/12/16 0016.
+ * Email： jason_sunyf@163.com
  */
 public class RxPresenter<T extends BaseView>  implements BasePresenter<T> {
 
