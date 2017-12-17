@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/AndroidComponent.iml" filepath="$PROJECT_DIR$/.idea/AndroidComponent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libcore/libcore.iml" filepath="$PROJECT_DIR$/libcore/libcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moduleapp/moduleapp.iml" filepath="$PROJECT_DIR$/moduleapp/moduleapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulemain/modulemain.iml" filepath="$PROJECT_DIR$/modulemain/modulemain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moduletraffic/moduletraffic.iml" filepath="$PROJECT_DIR$/moduletraffic/moduletraffic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulewhether/modulewhether.iml" filepath="$PROJECT_DIR$/modulewhether/modulewhether.iml" />
+    </modules>
+  </component>
+</project>
