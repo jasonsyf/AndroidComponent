@@ -12,7 +12,8 @@ import retrofit2.HttpException;
 
 /**
  * 简化retrofit网络请求,统一异常处理
- * Created by Jason_Sunyf on 2017/12/9 0009.
+ * @author Jason_Sunyf
+ * @date 2017/12/9 0009
  * Email： jason_sunyf@163.com
  */
 

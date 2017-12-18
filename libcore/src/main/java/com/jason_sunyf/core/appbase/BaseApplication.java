@@ -6,7 +6,9 @@ import com.jason_sunyf.core.util.CrashHandler;
 import com.jason_sunyf.core.util.X;
 
 /**
- * Created by Jason_Sunyf on 2017/12/16 0016.
+ *
+ * @author Jason_Sunyf
+ * @date 2017/12/16 0016
  * Email： jason_sunyf@163.com
  */
 

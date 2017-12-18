@@ -10,7 +10,8 @@ import com.jason_sunyf.core.util.X;
 
 /**
  * 用户信息缓存
- * Created by Administrator on 2017/11/14.
+ * @author Administrator
+ * @date 2017/11/14
  */
 
 public class SharedPreferencesUser {

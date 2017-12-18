@@ -11,7 +11,8 @@ import java.util.List;
 
 /**
  * ListView通用适配器
- * Created by jason_sunyf on 2017/11/1.
+ * @author jason_sunyf
+ * @date 2017/11/1
  */
 public abstract class CommonAdapter<T> extends BaseAdapter implements OnClickBack{
     private List<T> mData = new ArrayList<>();

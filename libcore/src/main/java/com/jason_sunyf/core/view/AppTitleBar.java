@@ -13,7 +13,9 @@ import android.widget.TextView;
 import com.jason_sunyf.core.R;
 
 /**
- * Created by Jason_Sunyf on 2017/11/8 0008.
+ *
+ * @author Jason_Sunyf
+ * @date 2017/11/8 0008
  * Email： jason_sunyf@163.com
  */
 

@@ -19,7 +19,8 @@ import com.jason_sunyf.core.view.LoadingProgressDialog;
 
 /**
  * activity基类
- * Created by Jason_Sunyf on 2017/12/16 0016.
+ * @author Jason_Sunyf
+ * @date 2017/12/16 0016
  * Email： jason_sunyf@163.com
  */
 
@@ -32,6 +33,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
     protected T mPresenter;
 
     @Override
+    @SuppressWarnings("unchecked")
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initPresenter();
@@ -124,6 +126,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
      * Created by LWH at 2017/4/7 0007 下午 2:35
      * 跳转有参数传递的界面
      */
+    @Override
     public void startActivity(Class<?> tClass, Bundle bundle) {
         Intent intent = new Intent(getContext(), tClass);
         if (null != bundle) {
@@ -136,11 +139,13 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
      * Created by LWH at 2017/4/7 0007 下午 2:36
      * 跳转界面
      */
+    @Override
     public void startActivity(Class<?> tClass) {
         Intent intent = new Intent(getContext(), tClass);
         startActivity(intent);
     }
 
+    @Override
     public void startActivityForResult(Class<?> tClass, Bundle bundle, int requestCode) {
         Intent intent = new Intent(getContext(), tClass);
         if (null != bundle) {
@@ -149,6 +154,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         startActivityForResult(intent, requestCode);
     }
 
+    @Override
     public void startActivityForResult(Class<?> tClass, int requestCode) {
         Intent intent = new Intent(getContext(), tClass);
         startActivityForResult(intent, requestCode);
