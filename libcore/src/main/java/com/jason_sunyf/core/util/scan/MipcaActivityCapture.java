@@ -124,7 +124,7 @@ public class MipcaActivityCapture extends BaseActivity implements Callback {
         inactivityTimer.onActivity();
         playBeepSoundAndVibrate();
         String resultString = result.getText();
-        if (resultString.equals("")) {
+        if ("".equals(resultString)) {
             Toast.makeText(MipcaActivityCapture.this, "Scan failed!", Toast.LENGTH_SHORT).show();
         } else {
             Intent resultIntent = new Intent();
@@ -226,6 +226,7 @@ public class MipcaActivityCapture extends BaseActivity implements Callback {
      * When the beep has finished playing, rewind to queue up another one.
      */
     private final OnCompletionListener beepListener = new OnCompletionListener() {
+        @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
             mediaPlayer.seekTo(0);
         }

@@ -57,7 +57,9 @@ public  abstract class RecycleCommonAdapter<T> extends RecyclerView.Adapter<View
 
 
     protected void setListener(final ViewGroup parent, final ViewHolder viewHolder, int viewType) {
-        if (!isEnabled(viewType)) return;
+        if (!isEnabled(viewType)) {
+                return;
+        }
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

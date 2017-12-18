@@ -37,7 +37,9 @@ public class MyApplication extends BaseApplication {
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppDebug() {
-        if (StringUtils.isSpace(instance.getPackageName())) return false;
+        if (StringUtils.isSpace(instance.getPackageName())) {
+                return false;
+        }
         try {
             PackageManager pm = instance.getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(instance.getPackageName(), 0);

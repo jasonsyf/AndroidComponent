@@ -53,7 +53,7 @@ public class RxUtil {
 
     public static <T> ObservableTransformer<JhResponse<T>,T > handleObserverResult() {   //compose判断结果
         return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
-            if (tJhResponse.getResultcode().equals("200")) {
+            if ("200".equals(tJhResponse.getResultcode())) {
                 Log.i("onNext", "onNext: "+new Gson().toJson(tJhResponse));
                 return createObserverData(tJhResponse.getResult());
             } else {
@@ -71,7 +71,7 @@ public class RxUtil {
      */
     public static <T> ObservableTransformer<JhResponse<T>,T > handleObserverObjectResult() {   //compose判断结果
         return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
-            if (tJhResponse.getResultcode().equals("200")) {
+            if ("200".equals(tJhResponse.getResultcode())) {
                 return createObserverData((T) tJhResponse);
             } else {
                 return Observable.error(new ApiException(tJhResponse.getReason(),
@@ -127,7 +127,7 @@ public class RxUtil {
         return (Flowable<JhResponse<T>> httpResponseFlowable) -> httpResponseFlowable.flatMap(new Function<JhResponse<T>, Publisher<? extends T>>() {
             @Override
             public Publisher<? extends T> apply(JhResponse<T> tJhResponse) throws Exception {
-                if (tJhResponse.getResultcode().equals("200")) {
+                if ("200".equals(tJhResponse.getResultcode())) {
                     Log.i("onNext", "onNext: " + new Gson().toJson(tJhResponse));
                     return createData(tJhResponse.getResult());
                 } else {
@@ -146,7 +146,7 @@ public class RxUtil {
      */
     public static <T> FlowableTransformer<JhResponse<T>,T > handleObjectResult() {   //compose判断结果
         return httpResponseFlowable -> httpResponseFlowable.flatMap(tJhResponse -> {
-            if (tJhResponse.getResultcode().equals("200")) {
+            if ("200".equals(tJhResponse.getResultcode())) {
                 return createData((T) tJhResponse);
             } else {
                 return Flowable.error(new ApiException(tJhResponse.getReason(), tJhResponse.getError_code()));
