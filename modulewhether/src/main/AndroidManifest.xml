@@ -4,7 +4,8 @@
 
     <application
         android:theme="@style/AppTheme">
-        <activity android:name=".whether.MainWhetherActivity">
+        <activity android:name=".whether.MainWhetherActivity"
+                  android:launchMode="singleTask">
         </activity>
     </application>
 

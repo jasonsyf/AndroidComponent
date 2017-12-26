@@ -1,5 +1,6 @@
 package com.jason_sunyf.moduletraffic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +10,12 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jason_sunyf.core.base.BaseActivity;
 
+import junit.framework.Test;
+
 @Route(path = "/traffic/main") //aroute 定义路径
 public class MainTrafficActivity extends BaseActivity {
     TextView mTextView;
+    String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class MainTrafficActivity extends BaseActivity {
     @Override
     protected void initView() {
         mTextView = findViewById(R.id.traffic_text);
+        s= getIntent().getStringExtra("jason");
+        mTextView.setText(s);
     }
 
     @Override
@@ -35,6 +41,7 @@ public class MainTrafficActivity extends BaseActivity {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // 1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
                 ARouter.getInstance().build("/whether/main").navigation();
                 // 2. 跳转并携带参数
@@ -43,6 +50,8 @@ public class MainTrafficActivity extends BaseActivity {
 //                        .withString("key3", "888")
 //                        .withObject("key4", new Test("Jack", "Rose"))
 //                        .navigation();
+              ;
+
             }
         });
     }

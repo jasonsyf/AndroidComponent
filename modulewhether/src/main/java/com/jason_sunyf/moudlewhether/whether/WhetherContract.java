@@ -5,7 +5,9 @@ import com.jason_sunyf.core.base.BaseView;
 import com.jason_sunyf.moudlewhether.entity.WhetherByCity;
 
 /**
- * Created by Jason_Sunyf on 2017/12/14 0014.
+ *
+ * @author Jason_Sunyf
+ * @date 2017/12/14 0014
  * Email： jason_sunyf@163.com
  */
 

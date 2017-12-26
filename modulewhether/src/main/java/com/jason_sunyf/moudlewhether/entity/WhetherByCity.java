@@ -1,7 +1,9 @@
 package com.jason_sunyf.moudlewhether.entity;
 
 /**
- * Created by Jason_Sunyf on 2017/12/13 0013.
+ *
+ * @author Jason_Sunyf
+ * @date 2017/12/13 0013
  * Email： jason_sunyf@163.com
  */
 
