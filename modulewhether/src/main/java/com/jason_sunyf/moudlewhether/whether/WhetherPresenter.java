@@ -28,14 +28,14 @@ public class WhetherPresenter extends RxPresenter<WhetherContract.View> implemen
     @Override
     public void getWhetherData(String cityname) {
         addSubscribe(RetrofitUtil.init().create(JuheApis.class)
-                .getWhether(cityname,"3113bf386346db1f52e57ef6483cbac8")
+                .getWhether(cityname, "3113bf386346db1f52e57ef6483cbac8")
                 .compose(RxUtil.rxSchedulerHelper())
                 .compose(RxUtil.handleResult())
                 .subscribeWith(new BaseSubscriber<WhetherByCity>(mView) {
                     @Override
                     public void onNext(WhetherByCity whetherByCity) {
                         Log.i("WhetherByCity", "WhetherByCity: " + new Gson().toJson(whetherByCity));
-                            mView.showWhetherData(whetherByCity);
+                        mView.showWhetherData(whetherByCity);
                     }
                 }));
     }
