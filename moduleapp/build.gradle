@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -12,6 +12,13 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        javaCompileOptions {
+            kapt {
+                arguments {
+                    arg("moduleName", project.getName())
+                }
+            }
+        }
     }
     buildTypes {
         release {
@@ -31,4 +38,8 @@ dependencies {
     if (!isModule.toBoolean()) {
         implementation project(':modulemain')
     }
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

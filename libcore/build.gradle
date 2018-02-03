@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -51,4 +53,8 @@ dependencies {
     //状态栏处理
     compile 'com.jaeger.statusbarutil:library:1.4.0'
     compile 'com.alibaba:arouter-api:1.2.4'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
