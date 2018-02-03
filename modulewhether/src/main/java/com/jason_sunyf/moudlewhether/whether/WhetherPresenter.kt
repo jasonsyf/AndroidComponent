@@ -20,13 +20,14 @@ class WhetherPresenter internal constructor(private val mViews:WhetherContract.V
     override fun getWhetherData(cityname: String) {
         addSubscribe(RetrofitUtil.init().create(JuheApis::class.java)
                 .getWhether(cityname, "3113bf386346db1f52e57ef6483cbac8")
-                .compose<JhResponse<WhetherByCity>>(RxUtil.rxSchedulerHelper<JhResponse<WhetherByCity>>())
-                .compose(RxUtil.handleResult<WhetherByCity>())
+                .compose(RxUtil.rxSchedulerHelper())
+                .compose(RxUtil.handleResult())
                 .subscribeWith(object : BaseSubscriber<WhetherByCity>(mViews) {
                     override fun onNext(whetherByCity: WhetherByCity) {
                         Log.i("WhetherByCity", "WhetherByCity: " + Gson().toJson(whetherByCity))
                         mViews.showWhetherData(whetherByCity)
                     }
+
                 }))
     }
 }

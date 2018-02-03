@@ -61,12 +61,10 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
-        initView();
         initDataAndEvent();
     }
     protected abstract void initPresenter();
 
-    protected abstract void initView();
 
     protected abstract void initDataAndEvent();
 

@@ -63,10 +63,6 @@ public class MipcaActivityCapture extends BaseActivity implements Callback {
 
     }
 
-    @Override
-    protected void initView() {
-
-    }
 
     @Override
     protected void initDataAndEvent() {
